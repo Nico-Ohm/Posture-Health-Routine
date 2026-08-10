@@ -1,0 +1,23 @@
+{
+  "name": "Aufrichten – Tägliche Haltungs-Routine",
+  "short_name": "Aufrichten",
+  "description": "Eine ruhige tägliche Routine für mehr Haltungsbewusstsein.",
+  "lang": "de",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F3F1EA",
+  "theme_color": "#F3F1EA",
+  "icons": [
+    {
+      "src": "/assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
