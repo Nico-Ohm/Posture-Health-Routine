@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#F3F1EA" />
+<meta name="description" content="Eine ruhige tägliche Routine für mehr Haltungsbewusstsein – direkt im Browser und mit lokal gespeichertem Fortschritt." />
+<meta name="format-detection" content="telephone=no" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="Aufrichten" />
+<link rel="apple-touch-icon" href="data:image/png;base64,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" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgcng9IjQ0IiBmaWxsPSIjRUVGMUVBIi8+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAwIDEwMCkgc2NhbGUoMC44NikgdHJhbnNsYXRlKC0xMDQuNSAtMTA4LjUpIj48cGF0aCBmaWxsPSIjNEZBNDZCIiBkPSJNIDk4LjAwIDE2LjAwIEMgMTAzLjI4IDE2LjAwLCAxMjEuNjAgMTcuNTgsIDEyNi4wMCAyMC4wMCBDIDEzMC40MCAyMi40MiwgMTM1LjkxIDM0LjA0LCAxMzguMDAgMzguMDAgQyAxNDAuMDkgNDEuOTYsIDE0NC4wMSA1Mi4wNCwgMTQ1LjAwIDU2LjAwIEMgMTQ1Ljk5IDU5Ljk2LCAxNDcuMjIgNzEuNDcsIDE0Ny4wMCA3NC4wMCBDIDE0Ni43OCA3Ni41MywgMTQyLjU2IDc3LjAyLCAxNDMuMDAgNzkuMDAgQyAxNDMuNDQgODAuOTgsIDE0OS40NiA4OS41OCwgMTUxLjAwIDkyLjAwIEMgMTUyLjU0IDk0LjQyLCAxNTcuMTEgOTkuNjgsIDE1Ny4wMCAxMDEuMDAgQyAxNTYuODkgMTAyLjMyLCAxNTEuMzIgMTAzLjU2LCAxNTAuMDAgMTA0LjAwIEMgMTQ4LjY4IDEwNC40NCwgMTQ1LjExIDEwNC40NSwgMTQ1LjAwIDEwNS4wMCBDIDE0NC44OSAxMDUuNTUsIDE0OS4xMSAxMDguMTIsIDE0OS4wMCAxMDkuMDAgQyAxNDguODkgMTA5Ljg4LCAxNDQuMTEgMTEyLjEyLCAxNDQuMDAgMTEzLjAwIEMgMTQzLjg5IDExMy44OCwgMTQ4LjAwIDExNi4xMiwgMTQ4LjAwIDExNy4wMCBDIDE0OC4wMCAxMTcuODgsIDE0My44OSAxMTkuNzksIDE0NC4wMCAxMjEuMDAgQyAxNDQuMTEgMTIyLjIxLCAxNDguODkgMTI2LjU3LCAxNDkuMDAgMTI4LjAwIEMgMTQ5LjExIDEyOS40MywgMTQ2Ljc2IDEzMi43OSwgMTQ1LjAwIDEzNC4wMCBDIDE0My4yNCAxMzUuMjEsIDEzNS4wOSAxMzcuMjQsIDEzMy4wMCAxMzkuMDAgQyAxMzAuOTEgMTQwLjc2LCAxMjYuOTkgMTQ3LjY5LCAxMjYuMDAgMTUwLjAwIEMgMTI1LjAxIDE1Mi4zMSwgMTIxLjM2IDE1Ny41OCwgMTI0LjAwIDE2MC4wMCBDIDEyNi42NCAxNjIuNDIsIDE0NC4yOCAxNjguNzAsIDE1MC4wMCAxNzIuMDAgQyAxNTUuNzIgMTc1LjMwLCAxNzIuMTUgMTg2LjgxLCAxNzYuMDAgMTkwLjAwIEMgMTc5Ljg1IDE5My4xOSwgMjAxLjA2IDE5OS43OSwgMTg1LjAwIDIwMS4wMCBDIDE2OC45NCAyMDIuMjEsIDQ3LjcxIDIwNC42MywgMzAuMDAgMjAxLjAwIEMgMTIuMjkgMTk3LjM3LCAyNC4wMCAxNzYuMDMsIDI0LjAwIDE2OC4wMCBDIDI0LjAwIDE1OS45NywgMjcuODAgMTM1LjkyLCAzMC4wMCAxMjguMDAgQyAzMi4yMCAxMjAuMDgsIDQyLjI0IDEwMy4wNCwgNDQuMDAgOTYuMDAgQyA0NS43NiA4OC45NiwgNDQuMjQgNzAuODIsIDQ2LjAwIDY0LjAwIEMgNDcuNzYgNTcuMTgsIDU2LjQ4IDM4Ljg0LCA2MC4wMCAzNC4wMCBDIDYzLjUyIDI5LjE2LCA3My44MiAyMS45OCwgNzguMDAgMjAuMDAgQyA4Mi4xOCAxOC4wMiwgOTIuNzIgMTYuMDAsIDk4LjAwIDE2LjAwIFoiLz48L2c+PC9zdmc+" />
+<title>Aufrichten – Tägliche Haltungs-Routine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F3F1EA;
+    --surface:#FBFAF6;
+    --surface-2:#F6F3EA;
+    --ink:#2A322C;
+    --ink-soft:#63706A;
+    --line:#E4DFD3;
+    --track:#E9E5DA;
+    --sage:#6B9080;
+    --sage-deep:#4A6B5D;
+    --green:#4FA46B;
+    --green-soft:#DCECDE;
+    --amber:#D99436;
+    --amber-soft:#F6E6CE;
+    --radius:16px;
+    --shadow:0 1px 2px rgba(42,50,44,.04), 0 8px 24px rgba(42,50,44,.06);
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  html,body{margin:0;padding:0;overflow-x:hidden}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    -webkit-tap-highlight-color:transparent;
+    padding:env(safe-area-inset-top) 0 calc(64px + env(safe-area-inset-bottom));
+  }
+  button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  .wrap{max-width:720px;margin:0 auto;
+    padding-left:max(16px, env(safe-area-inset-left));
+    padding-right:max(16px, env(safe-area-inset-right))}
+
+  /* Header */
+  header{padding:36px 0 8px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand-head{width:42px;height:42px;flex:0 0 auto}
+  .eyebrow{
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--sage-deep);font-weight:600;margin:0 0 6px
+  }
+  h1{
+    font-family:"Fraunces",Georgia,serif;
+    font-weight:500;font-size:clamp(30px,6vw,44px);
+    line-height:1.02;margin:0;letter-spacing:-.01em
+  }
+  .today-date{color:var(--ink-soft);margin:8px 0 0;font-size:15px;text-transform:capitalize}
+
+  /* Tabs */
+  .tabs{display:flex;gap:6px;margin:22px 0 24px;background:var(--surface-2);
+    border:1px solid var(--line);border-radius:999px;padding:5px;width:fit-content}
+  .tab{
+    border:0;background:transparent;cursor:pointer;
+    font-family:inherit;font-size:14px;font-weight:600;color:var(--ink-soft);
+    padding:9px 18px;border-radius:999px;transition:background .18s,color .18s
+  }
+  .tab[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+  .tab:focus-visible{outline:2px solid var(--sage);outline-offset:2px}
+
+  /* ---- Today view ---- */
+  .today-grid{display:grid;grid-template-columns:64px 1fr;gap:22px;align-items:start}
+  @media(max-width:520px){.today-grid{grid-template-columns:48px 1fr;gap:14px}}
+
+  /* Signature: the spine */
+  .spine-col{position:sticky;top:16px;display:flex;flex-direction:column;align-items:center;gap:6px}
+  .spine{display:flex;flex-direction:column-reverse;gap:5px}
+  .vert{
+    width:26px;height:16px;border-radius:6px;
+    background:var(--surface);border:1.5px solid var(--line);
+    transition:background .3s ease,border-color .3s ease,transform .2s ease
+  }
+  @media(max-width:520px){.vert{width:20px;height:13px}}
+  .vert.on{background:var(--green);border-color:var(--green);transform:scaleX(1.06)}
+  .spine-count{font-family:"Fraunces",serif;font-size:15px;color:var(--sage-deep);margin-top:4px;font-weight:600}
+  .spine-min{font-size:11px;color:var(--ink-soft);letter-spacing:.02em}
+
+  /* Exercise cards */
+  .cards{display:flex;flex-direction:column;gap:14px}
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);overflow:hidden;transition:border-color .2s,box-shadow .2s
+  }
+  .card.done{border-color:var(--green);background:linear-gradient(0deg,var(--green-soft),var(--surface) 60%)}
+  .card-head{display:flex;gap:14px;align-items:center;padding:14px 16px;cursor:pointer}
+  .illo{flex:0 0 auto;width:74px;height:60px;border-radius:12px;background:var(--surface-2);
+    display:flex;align-items:center;justify-content:center;padding:6px}
+  .illo svg{width:100%;height:100%}
+  .card.done .illo{background:#EAF4EC}
+  .titles{flex:1 1 auto;min-width:0}
+  .ex-name{font-family:"Fraunces",serif;font-weight:600;font-size:18px;margin:0;letter-spacing:-.01em}
+  .ex-cue{color:var(--ink-soft);font-size:13px;margin:2px 0 0}
+  .ex-dur{display:inline-block;font-size:12px;font-weight:600;color:var(--sage-deep);
+    background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:2px 9px;margin-top:6px}
+
+  /* Check button */
+  .check{
+    flex:0 0 auto;width:36px;height:36px;border-radius:50%;
+    border:2px solid var(--line);background:var(--surface);cursor:pointer;
+    display:flex;align-items:center;justify-content:center;transition:all .18s
+  }
+  .check:active{transform:scale(.92)}
+  .check svg{width:18px;height:18px;stroke:var(--surface);opacity:0;transition:opacity .18s}
+  .card.done .check{background:var(--green);border-color:var(--green)}
+  .card.done .check svg{opacity:1}
+  .check:focus-visible{outline:2px solid var(--sage);outline-offset:3px}
+
+  /* Expandable detail */
+  .detail{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .card.open .detail{max-height:640px}
+  .steps{margin:0;padding:2px 18px 18px 18px;border-top:1px dashed var(--line)}
+  .steps ol{margin:12px 0 0;padding-left:20px;color:var(--ink);font-size:14.5px}
+  .steps li{margin:0 0 7px}
+  .expand-hint{font-size:12px;color:var(--sage-deep);padding:0 16px 12px;display:flex;align-items:center;gap:5px;cursor:pointer}
+  .chev{transition:transform .25s}
+  .card.open .chev{transform:rotate(180deg)}
+
+  /* Done banner */
+  .done-banner{
+    margin-top:22px;text-align:center;padding:22px;border-radius:var(--radius);
+    background:var(--green-soft);border:1px solid var(--green);color:var(--sage-deep);
+    font-family:"Fraunces",serif;font-size:19px;display:none
+  }
+  .done-banner.show{display:block}
+
+  /* ---- Calendar ---- */
+  .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+  .cal-title{font-family:"Fraunces",serif;font-size:22px;font-weight:600;text-transform:capitalize}
+  .nav-btn{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:var(--surface);
+    cursor:pointer;font-size:18px;color:var(--ink);display:flex;align-items:center;justify-content:center;transition:background .15s}
+  .nav-btn:hover{background:var(--surface-2)}
+  .nav-btn:focus-visible{outline:2px solid var(--sage);outline-offset:2px}
+  .weekdays,.days{display:grid;grid-template-columns:repeat(7,1fr);gap:7px}
+  .weekdays{margin-bottom:7px}
+  .wd{text-align:center;font-size:11px;font-weight:600;color:var(--ink-soft);letter-spacing:.04em;text-transform:uppercase}
+  .day{aspect-ratio:1;border-radius:12px;border:1px solid var(--line);background:var(--surface);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;position:relative}
+  .day.empty{border:0;background:transparent}
+  .ring{width:58%;max-width:46px;min-width:30px;aspect-ratio:1;border-radius:50%;
+    background:conic-gradient(var(--fill,transparent) calc(var(--frac,0)*1turn), var(--track) 0);
+    display:flex;align-items:center;justify-content:center;position:relative;transition:background .4s ease}
+  .ring::before{content:"";position:absolute;inset:3.5px;border-radius:50%;background:var(--surface)}
+  .ring .num{position:relative;z-index:1;font-size:13px;font-weight:600;line-height:1}
+  .day .mins{font-size:9px;color:var(--ink-soft);line-height:1}
+  .day.today{outline:2px solid var(--sage);outline-offset:1px}
+  .day.future .num{color:#C4C0B4}
+
+  /* Stats */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;text-align:center;box-shadow:var(--shadow)}
+  .stat .big{font-family:"Fraunces",serif;font-size:28px;font-weight:600;line-height:1}
+  .stat .lbl{font-size:12px;color:var(--ink-soft);margin-top:5px}
+  .legend{display:flex;gap:18px;justify-content:center;margin-top:20px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-soft)}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .dot{width:12px;height:12px;border-radius:4px;border:1px solid}
+  .legend .ms-mark{width:6px;height:6px;border-radius:50%;background:var(--sage-deep);border:0}
+  .legend .lring{width:16px;height:16px;border-radius:50%;position:relative;
+    background:conic-gradient(var(--fill,transparent) calc(var(--frac,0)*1turn), var(--track) 0)}
+  .legend .lring::before{content:"";position:absolute;inset:2.5px;border-radius:50%;background:var(--bg)}
+
+  /* Milestone marker inside a calendar cell */
+  .day .ms-dot{position:absolute;top:5px;right:6px;
+    width:5px;height:5px;border-radius:50%;background:var(--sage-deep);z-index:2}
+
+  /* Milestone list */
+  .ms-wrap{margin-top:28px}
+  .ms-title{font-family:"Fraunces",serif;font-size:16px;font-weight:600;letter-spacing:-.01em}
+  .ms-sub{font-size:12px;color:var(--ink-soft);margin:2px 0 14px}
+  .ms-list{display:flex;flex-direction:column;gap:0}
+  .ms-row{display:grid;grid-template-columns:74px 1fr auto;align-items:baseline;gap:12px;
+    padding:11px 4px;border-top:1px solid var(--line);font-size:13.5px}
+  .ms-row:last-child{border-bottom:1px solid var(--line)}
+  .ms-when{font-weight:600;color:var(--sage-deep);font-size:12.5px}
+  .ms-label{color:var(--ink)}
+  .ms-desc{display:block;color:var(--ink-soft);font-size:12px;margin-top:1px}
+  .ms-status{font-size:12px;color:var(--ink-soft);white-space:nowrap}
+  .ms-row.reached{opacity:.62}
+  .ms-row.reached .ms-status{color:var(--sage-deep)}
+  .ms-row.next{background:var(--surface);border-radius:10px;border-top-color:transparent;
+    box-shadow:inset 3px 0 0 var(--sage)}
+  .ms-row.next + .ms-row{border-top-color:var(--line)}
+
+  /* Footer / reset */
+  .foot{margin-top:36px;text-align:center;color:var(--ink-soft);font-size:12.5px}
+  .foot-note{max-width:560px;margin:10px auto 0}
+  .health-note{max-width:560px;margin:24px auto 0;padding:14px 16px;text-align:left;
+    background:var(--surface-2);border:1px solid var(--line);border-radius:12px;line-height:1.45}
+  .reset{background:none;border:0;color:var(--ink-soft);text-decoration:underline;cursor:pointer;font-size:12.5px;font-family:inherit}
+  .warn{background:var(--amber-soft);border:1px solid var(--amber);color:#8a5a12;padding:12px 16px;border-radius:12px;margin:16px 0;font-size:13.5px;display:none}
+  .warn.show{display:block}
+
+  .hidden{display:none}
+
+  /* ---- Phone tuning ---- */
+  @media(max-width:600px){
+    header{padding:22px 0 4px}
+    h1{font-size:34px}
+    .brand-head{width:36px;height:36px}
+    .tabs{width:100%;margin:18px 0 20px}
+    .tab{flex:1 1 0;text-align:center;padding:12px 0;font-size:15px}
+    .today-grid{gap:12px}
+    .card-head{padding:12px 12px;gap:11px}
+    .illo{width:58px;height:52px}
+    .ex-name{font-size:16.5px}
+    .ex-cue{font-size:12.5px}
+    .check{width:40px;height:40px}
+    .expand-hint{padding:0 12px 12px}
+    .steps{padding:2px 14px 16px 14px}
+    .weekdays,.days{gap:5px}
+    .wd{font-size:10px}
+    .ring .num{font-size:12px}
+    .day .mins{font-size:8.5px}
+    .cal-title{font-size:19px}
+    .nav-btn{width:44px;height:44px}
+    .stats{gap:8px}
+    .stat{padding:14px 6px}
+    .stat .big{font-size:24px}
+    .legend{gap:12px 16px;font-size:12px}
+    .ms-row{grid-template-columns:60px 1fr auto;gap:8px}
+    .ms-when{font-size:12px}
+  }
+
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Tägliche Haltungs-Routine · 15 Min</p>
+    <div class="brand"><svg class="brand-head" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#4FA46B" d="M 98.00 16.00 C 103.28 16.00, 121.60 17.58, 126.00 20.00 C 130.40 22.42, 135.91 34.04, 138.00 38.00 C 140.09 41.96, 144.01 52.04, 145.00 56.00 C 145.99 59.96, 147.22 71.47, 147.00 74.00 C 146.78 76.53, 142.56 77.02, 143.00 79.00 C 143.44 80.98, 149.46 89.58, 151.00 92.00 C 152.54 94.42, 157.11 99.68, 157.00 101.00 C 156.89 102.32, 151.32 103.56, 150.00 104.00 C 148.68 104.44, 145.11 104.45, 145.00 105.00 C 144.89 105.55, 149.11 108.12, 149.00 109.00 C 148.89 109.88, 144.11 112.12, 144.00 113.00 C 143.89 113.88, 148.00 116.12, 148.00 117.00 C 148.00 117.88, 143.89 119.79, 144.00 121.00 C 144.11 122.21, 148.89 126.57, 149.00 128.00 C 149.11 129.43, 146.76 132.79, 145.00 134.00 C 143.24 135.21, 135.09 137.24, 133.00 139.00 C 130.91 140.76, 126.99 147.69, 126.00 150.00 C 125.01 152.31, 121.36 157.58, 124.00 160.00 C 126.64 162.42, 144.28 168.70, 150.00 172.00 C 155.72 175.30, 172.15 186.81, 176.00 190.00 C 179.85 193.19, 201.06 199.79, 185.00 201.00 C 168.94 202.21, 47.71 204.63, 30.00 201.00 C 12.29 197.37, 24.00 176.03, 24.00 168.00 C 24.00 159.97, 27.80 135.92, 30.00 128.00 C 32.20 120.08, 42.24 103.04, 44.00 96.00 C 45.76 88.96, 44.24 70.82, 46.00 64.00 C 47.76 57.18, 56.48 38.84, 60.00 34.00 C 63.52 29.16, 73.82 21.98, 78.00 20.00 C 82.18 18.02, 92.72 16.00, 98.00 16.00 Z"/></svg><h1>Aufrichten</h1></div>
+    <p class="today-date" id="todayDate"></p>
+  </header>
+
+  <div id="storageWarn" class="warn">
+    Achtung: Dein Browser speichert gerade keine Daten (z.&nbsp;B. privater Modus).
+    Deine Fortschritte gehen beim Schließen verloren.
+  </div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tabToday" aria-selected="true" aria-controls="viewToday">Heute</button>
+    <button class="tab" role="tab" id="tabCal" aria-selected="false" aria-controls="viewCal">Kalender</button>
+  </div>
+
+  <!-- TODAY -->
+  <section id="viewToday" role="tabpanel" aria-labelledby="tabToday">
+    <div class="today-grid">
+      <div class="spine-col" aria-hidden="true">
+        <div class="spine" id="spine"></div>
+        <div class="spine-count" id="spineCount">0/7</div>
+        <div class="spine-min" id="spineMin">0 Min</div>
+      </div>
+      <div class="cards" id="cards"></div>
+    </div>
+    <div class="done-banner" id="doneBanner">Geschafft – alle 7 Übungen erledigt. 🌿</div>
+  </section>
+
+  <!-- CALENDAR -->
+  <section id="viewCal" role="tabpanel" aria-labelledby="tabCal" class="hidden">
+    <div class="cal-head">
+      <button class="nav-btn" id="prevMonth" aria-label="Vorheriger Monat">‹</button>
+      <div class="cal-title" id="calTitle"></div>
+      <button class="nav-btn" id="nextMonth" aria-label="Nächster Monat">›</button>
+    </div>
+    <div class="weekdays" id="weekdays"></div>
+    <div class="days" id="days"></div>
+
+    <div class="legend">
+      <span><i class="lring" style="--frac:0"></i> Offen</span>
+      <span><i class="lring" style="--frac:.55;--fill:#D4B058"></i> Teilweise</span>
+      <span><i class="lring" style="--frac:1;--fill:#5DA16E"></i> Geschafft</span>
+      <span><i class="ms-mark"></i> Meilenstein</span>
+    </div>
+
+    <div class="ms-wrap">
+      <div class="ms-title">Meilensteine</div>
+      <div class="ms-sub" id="msSub">Ab deinem ersten Übungstag</div>
+      <div class="ms-list" id="msList"></div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="big" id="statStreak">0</div><div class="lbl">Tage-Streak</div></div>
+      <div class="stat"><div class="big" id="statDays">0</div><div class="lbl">Aktive Tage</div></div>
+      <div class="stat"><div class="big" id="statMin">0</div><div class="lbl">Minuten gesamt</div></div>
+    </div>
+  </section>
+
+  <div class="foot">
+    <p class="health-note"><strong>Wichtig:</strong> Diese Routine ist eine allgemeine Bewegungshilfe und ersetzt keine medizinische oder physiotherapeutische Beratung. Bei Schmerzen, Taubheit, Schwindel oder anhaltenden Beschwerden bitte pausieren und fachlichen Rat einholen.</p>
+    <p class="foot-note">iPhone-Tipp: In Safari auf <strong>Teilen</strong> und dann auf <strong>Zum Home-Bildschirm</strong> tippen.</p>
+    <p>Deine Daten bleiben nur auf diesem Gerät gespeichert. ·
+    <button class="reset" id="resetBtn">Alle Daten zurücksetzen</button></p>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- SVG illustrations ---------- */
+  const I = {
+    line:'stroke="var(--ink)" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"',
+    acc:'stroke="var(--sage)" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"',
+    accF:'fill="var(--sage)"'
+  };
+  const svgs = {
+    chin:`<svg viewBox="0 0 120 96">
+      <g ${I.line} opacity="0.28">
+        <circle cx="78" cy="34" r="15"/><path d="M74 49 q4 8 -2 14"/>
+      </g>
+      <g ${I.line}>
+        <circle cx="54" cy="34" r="15"/>
+        <path d="M54 49 v18 M40 63 q14 8 28 0"/>
+      </g>
+      <path ${I.acc} d="M84 30 h-20"/><path ${I.acc} d="M70 24 l-8 6 8 6"/>
+    </svg>`,
+    wall:`<svg viewBox="0 0 120 96">
+      <line x1="20" y1="8" x2="20" y2="88" ${I.line} opacity="0.4"/>
+      <g ${I.line}>
+        <circle cx="40" cy="24" r="10"/>
+        <path d="M40 34 v30 M30 84 h20 M30 64 h20"/>
+        <path d="M40 44 l-14 -8 M40 44 l14 -8"/>
+      </g>
+      <path ${I.acc} d="M28 34 l-4 -12 M52 34 l4 -12"/>
+      <path ${I.accF} d="M24 22 l-4 6 h8 z"/><path ${I.accF} d="M56 22 l4 6 h-8 z"/>
+    </svg>`,
+    chest:`<svg viewBox="0 0 120 96">
+      <line x1="88" y1="8" x2="88" y2="88" ${I.line} opacity="0.4"/>
+      <g ${I.line}>
+        <circle cx="52" cy="26" r="10"/>
+        <path d="M52 36 v26 M52 62 l-10 22 M52 62 l6 22"/>
+        <path d="M52 44 l24 -6 M76 38 v10"/>
+      </g>
+      <path ${I.acc} d="M40 70 h-18"/><path ${I.accF} d="M22 64 l-8 6 8 6 z"/>
+    </svg>`,
+    scap:`<svg viewBox="0 0 120 96">
+      <g ${I.line}>
+        <ellipse cx="60" cy="72" rx="34" ry="9"/>
+        <circle cx="60" cy="34" r="11"/>
+        <path d="M46 58 l-14 4 M74 58 l14 4"/>
+        <path d="M50 50 l-10 12 M70 50 l10 12"/>
+      </g>
+      <path ${I.acc} d="M40 40 h14 M80 40 h-14"/>
+      <path ${I.accF} d="M56 34 l-6 6 6 6 z"/><path ${I.accF} d="M64 34 l6 6 -6 6 z"/>
+    </svg>`,
+    tspine:`<svg viewBox="0 0 120 96">
+      <line x1="12" y1="82" x2="108" y2="82" ${I.line} opacity="0.4"/>
+      <ellipse cx="52" cy="74" rx="9" ry="7" ${I.line}/>
+      <g ${I.line}>
+        <path d="M28 66 q24 -22 44 -2"/>
+        <circle cx="26" cy="60" r="9"/>
+        <path d="M22 54 q-8 -8 -4 -18"/>
+        <path d="M70 62 q10 4 18 -2"/>
+      </g>
+      <path ${I.acc} d="M44 44 q10 -8 20 0"/>
+    </svg>`,
+    trap:`<svg viewBox="0 0 120 96">
+      <g ${I.line}>
+        <circle cx="54" cy="30" r="12" transform="rotate(-18 54 30)"/>
+        <path d="M54 42 v26 M40 84 h28 M54 68 l-10 16 M54 68 l10 16"/>
+        <path d="M60 20 q14 -2 16 8"/>
+      </g>
+      <path ${I.acc} d="M44 18 q-10 6 -6 16"/>
+      <path ${I.accF} d="M36 30 l2 8 6 -4 z"/>
+    </svg>`,
+    cobra:`<svg viewBox="0 0 120 96">
+      <line x1="12" y1="80" x2="108" y2="80" ${I.line} opacity="0.4"/>
+      <g ${I.line}>
+        <path d="M30 80 q30 6 54 -8"/>
+        <circle cx="88" cy="60" r="10"/>
+        <path d="M52 74 q6 -2 12 -8"/>
+        <path d="M40 78 l14 -10"/>
+      </g>
+      <path ${I.acc} d="M84 40 q-2 -10 6 -14"/>
+      <path ${I.accF} d="M96 24 l-8 -2 2 8 z"/>
+    </svg>`
+  };
+
+  /* ---------- Exercises ---------- */
+  const EXERCISES = [
+    { id:'chin', name:'Nackenretraktion', dur:2, cue:'Kräftigt die tiefen Halsbeuger',
+      steps:['Sitz oder steh aufrecht, Blick geradeaus.',
+             'Zieh das Kinn gerade nach hinten – als würdest du bewusst ein Doppelkinn machen. Nicht nach unten nicken.',
+             '5 Sekunden halten, dann locker lassen. 10 Wiederholungen.'] },
+    { id:'wall', name:'Wandengel', dur:2, cue:'Aktiviert unteren Trapez & Schulterblätter',
+      steps:['Rücken, Kopf und Gesäß an die Wand, Füße etwas davor.',
+             'Arme an die Wand in ein „W" (Ellbogen unten).',
+             'Langsam nach oben zu einem „Y" schieben, Handrücken bleibt an der Wand, dann zurück.',
+             '10 langsame Wiederholungen.'] },
+    { id:'chest', name:'Brustöffnung im Türrahmen', dur:2, cue:'Löst die verkürzte Brustmuskulatur',
+      steps:['In einen Türrahmen stellen, Unterarme an den Rahmen (Ellbogen ca. 90°).',
+             'Kleiner Schritt nach vorne, bis du die Dehnung in der Brust spürst.',
+             '30–45 Sekunden ruhig halten, 2× wiederholen.'] },
+    { id:'scap', name:'Schulterblatt-Aktivierung', dur:2, cue:'Kräftigt Rhomboiden & hintere Schulter',
+      steps:['Auf den Bauch legen, Stirn zum Boden, Arme im „W" neben dem Körper.',
+             'Schulterblätter zusammenziehen und die Arme leicht vom Boden heben.',
+             '3 Sekunden halten, 10 Wiederholungen.'] },
+    { id:'tspine', name:'Brustwirbelsäulen-Streckung', dur:2, cue:'Mobilisiert den runden oberen Rücken',
+      steps:['Ein Handtuch fest zusammenrollen und quer unter den oberen Rücken legen.',
+             'Rücklings darüberlegen, Hände hinter dem Kopf, den oberen Rücken sanft über die Rolle strecken.',
+             'Ruhig atmen, 1–2 Minuten.'] },
+    { id:'trap', name:'Nacken-Seitdehnung', dur:2, cue:'Entspannt den überaktiven oberen Trapez',
+      steps:['Aufrecht sitzen. Kopf langsam zur rechten Schulter neigen.',
+             'Rechte Hand leicht auf den Kopf legen, ohne zu ziehen. 30 Sek halten.',
+             'Seite wechseln.'] },
+    { id:'cobra', name:'Kobra-Halten', dur:3, cue:'Stärkt die gesamte hintere Kette',
+      steps:['Auf den Bauch legen, Arme neben dem Körper, Handflächen nach unten.',
+             'Brust und Kopf leicht anheben, Daumen nach oben drehen, Schulterblätter zusammenziehen.',
+             '10 Sek halten, 5–8 Wiederholungen.'] }
+  ];
+  const TOTAL = EXERCISES.length;
+  const TOTAL_MIN = EXERCISES.reduce((s,e)=>s+e.dur,0);
+  const KEY = 'aufrichten-tracker-v1';
+
+  /* ---------- Storage ---------- */
+  let storageOK = true;
+  function loadAll(){
+    try{
+      const raw = localStorage.getItem(KEY);
+      return raw ? JSON.parse(raw) : {};
+    }catch(e){ storageOK = false; return {}; }
+  }
+  function saveAll(data){
+    try{ localStorage.setItem(KEY, JSON.stringify(data)); }
+    catch(e){ storageOK = false; document.getElementById('storageWarn').classList.add('show'); }
+  }
+  // probe storage availability up front
+  try{ localStorage.setItem('__t','1'); localStorage.removeItem('__t'); }
+  catch(e){ storageOK = false; }
+
+  let store = loadAll();
+  if(!storageOK) document.getElementById('storageWarn').classList.add('show');
+
+  /* ---------- Date helpers ---------- */
+  function keyOf(d){
+    return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+  }
+  const TODAY = new Date();
+  const TODAY_KEY = keyOf(TODAY);
+  const MONTHS = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+  const WDAYS = ['Mo','Di','Mi','Do','Fr','Sa','So'];
+
+  function checkedFor(k){ return (store[k] && store[k].checked) || []; }
+  function minutesFor(k){
+    return checkedFor(k).reduce((s,id)=>{
+      const e = EXERCISES.find(x=>x.id===id); return s + (e?e.dur:0);
+    },0);
+  }
+  function statusFor(k){
+    const n = checkedFor(k).length;
+    if(n===0) return 'none';
+    if(n>=TOTAL) return 'full';
+    return 'partial';
+  }
+
+  /* ---------- Today view ---------- */
+  const cardsEl = document.getElementById('cards');
+  const spineEl = document.getElementById('spine');
+  const tick = '<svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>';
+
+  function buildToday(){
+    // date label
+    const opts = {weekday:'long', day:'numeric', month:'long'};
+    document.getElementById('todayDate').textContent = TODAY.toLocaleDateString('de-DE', opts);
+
+    // spine
+    spineEl.innerHTML = '';
+    for(let i=0;i<TOTAL;i++){
+      const v = document.createElement('div'); v.className='vert'; v.dataset.i=i; spineEl.appendChild(v);
+    }
+    // cards
+    cardsEl.innerHTML = '';
+    EXERCISES.forEach((e,idx)=>{
+      const done = checkedFor(TODAY_KEY).includes(e.id);
+      const card = document.createElement('div');
+      card.className = 'card'+(done?' done':'');
+      card.innerHTML =
+        '<div class="card-head">'+
+          '<div class="illo">'+svgs[e.id]+'</div>'+
+          '<div class="titles">'+
+            '<p class="ex-name">'+e.name+'</p>'+
+            '<p class="ex-cue">'+e.cue+'</p>'+
+            '<span class="ex-dur">'+e.dur+' Min</span>'+
+          '</div>'+
+          '<button class="check" role="checkbox" aria-checked="'+done+'" aria-label="'+e.name+' erledigt">'+tick+'</button>'+
+        '</div>'+
+        '<div class="expand-hint">Anleitung <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--sage-deep)" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>'+
+        '<div class="detail"><div class="steps"><ol>'+e.steps.map(s=>'<li>'+s+'</li>').join('')+'</ol></div></div>';
+
+      // toggle done
+      const btn = card.querySelector('.check');
+      btn.addEventListener('click', (ev)=>{ ev.stopPropagation(); toggle(e.id); });
+      // expand
+      const hint = card.querySelector('.expand-hint');
+      const head = card.querySelector('.card-head .titles');
+      hint.addEventListener('click', ()=>card.classList.toggle('open'));
+      head.addEventListener('click', ()=>card.classList.toggle('open'));
+
+      cardsEl.appendChild(card);
+    });
+    refreshSpine();
+  }
+
+  function refreshSpine(){
+    const n = checkedFor(TODAY_KEY).length;
+    [...spineEl.children].forEach((v,i)=>v.classList.toggle('on', i<n));
+    document.getElementById('spineCount').textContent = n+'/'+TOTAL;
+    document.getElementById('spineMin').textContent = minutesFor(TODAY_KEY)+' Min';
+    document.getElementById('doneBanner').classList.toggle('show', n>=TOTAL);
+  }
+
+  function toggle(id){
+    const arr = checkedFor(TODAY_KEY).slice();
+    const i = arr.indexOf(id);
+    if(i>=0) arr.splice(i,1); else arr.push(id);
+    store[TODAY_KEY] = { checked: arr };
+    if(arr.length===0) delete store[TODAY_KEY];
+    saveAll(store);
+    // update the one card + spine without full rebuild
+    const idx = EXERCISES.findIndex(x=>x.id===id);
+    const card = cardsEl.children[idx];
+    const nowDone = arr.includes(id);
+    card.classList.toggle('done', nowDone);
+    card.querySelector('.check').setAttribute('aria-checked', nowDone);
+    refreshSpine();
+  }
+
+  /* ---------- Calendar view ---------- */
+  let viewYear = TODAY.getFullYear();
+  let viewMonth = TODAY.getMonth();
+
+  const wdEl = document.getElementById('weekdays');
+  WDAYS.forEach(w=>{ const d=document.createElement('div'); d.className='wd'; d.textContent=w; wdEl.appendChild(d); });
+
+  /* ---------- Milestones ---------- */
+  const MILESTONES = [
+    { day:7,  when:'1 Woche',  label:'Routine kennenlernen', desc:'Sieben Tage bewusst bewegt' },
+    { day:14, when:'2 Wochen', label:'Regelmäßigkeit stärken', desc:'Die Routine wird vertrauter' },
+    { day:28, when:'4 Wochen', label:'Bewegung bewusster', desc:'Vier Wochen aufmerksam drangeblieben' },
+    { day:42, when:'6 Wochen', label:'Routine festigen', desc:'Übungen sicherer und ruhiger ausführen' },
+    { day:90, when:'3 Monate', label:'Dranbleiben', desc:'Drei Monate Zeit für die eigene Haltung' }
+  ];
+  const TODAY0 = new Date(TODAY.getFullYear(), TODAY.getMonth(), TODAY.getDate());
+  let msStarted = false;
+
+  function startDay(){
+    const keys = Object.keys(store).filter(k=>checkedFor(k).length>0).sort();
+    if(keys.length){ msStarted = true; const p = keys[0].split('-'); return new Date(+p[0], +p[1]-1, +p[2]); }
+    msStarted = false; return new Date(TODAY0);
+  }
+  function milestoneDate(m){ const d = new Date(startDay()); d.setDate(d.getDate()+m.day-1); return d; }
+  function milestoneMap(){
+    const map = {};
+    MILESTONES.forEach(m=>{ map[keyOf(milestoneDate(m))] = m; });
+    return map;
+  }
+
+  // progress ring colour: grey -> yellow -> green, muted to match the palette
+  function fillColor(frac){
+    const grey=[168,172,160], yellow=[212,176,88], green=[93,161,110];
+    const mix=(a,b,t)=>'rgb('+Math.round(a[0]+(b[0]-a[0])*t)+','+Math.round(a[1]+(b[1]-a[1])*t)+','+Math.round(a[2]+(b[2]-a[2])*t)+')';
+    if(frac<=0) return 'transparent';
+    if(frac<=0.5) return mix(grey,yellow,frac/0.5);
+    return mix(yellow,green,(frac-0.5)/0.5);
+  }
+
+  function buildCalendar(){
+    document.getElementById('calTitle').textContent = MONTHS[viewMonth]+' '+viewYear;
+    const daysEl = document.getElementById('days');
+    daysEl.innerHTML = '';
+    const first = new Date(viewYear, viewMonth, 1);
+    let lead = (first.getDay()+6)%7; // Monday = 0
+    const dim = new Date(viewYear, viewMonth+1, 0).getDate();
+    const msMap = milestoneMap();
+    for(let i=0;i<lead;i++){ const c=document.createElement('div'); c.className='day empty'; daysEl.appendChild(c); }
+    for(let d=1; d<=dim; d++){
+      const date = new Date(viewYear, viewMonth, d);
+      const k = keyOf(date);
+      const isFuture = date > TODAY && k!==TODAY_KEY;
+      const ms = msMap[k];
+      const done = checkedFor(k).length;
+      const frac = done/TOTAL;
+      const mins = minutesFor(k);
+      const cell = document.createElement('div');
+      cell.className = 'day'+(k===TODAY_KEY?' today':'')+(isFuture?' future':'');
+      const ringStyle = 'style="--frac:'+frac+(frac>0?';--fill:'+fillColor(frac):'')+'"';
+      cell.innerHTML =
+        (ms?'<span class="ms-dot"></span>':'')+
+        '<div class="ring" '+ringStyle+'><span class="num">'+d+'</span></div>'+
+        (mins?'<span class="mins">'+mins+'′</span>':'');
+      if(ms) cell.title = ms.when+' · '+ms.label;
+      daysEl.appendChild(cell);
+    }
+    buildMilestones();
+    buildStats();
+  }
+
+  function buildMilestones(){
+    const listEl = document.getElementById('msList');
+    listEl.innerHTML = '';
+    let nextMarked = false;
+    MILESTONES.forEach(m=>{
+      const d = milestoneDate(m);
+      const diff = Math.round((d - TODAY0)/86400000);
+      const reached = diff <= 0;
+      let status, cls = '';
+      if(reached){
+        cls = 'reached';
+        status = '✓ '+d.toLocaleDateString('de-DE',{day:'numeric',month:'short'});
+      } else {
+        status = diff===1 ? 'morgen' : 'in '+diff+' Tagen';
+        if(!nextMarked){ cls = 'next'; nextMarked = true; }
+      }
+      const row = document.createElement('div');
+      row.className = 'ms-row'+(cls?' '+cls:'');
+      row.innerHTML =
+        '<span class="ms-when">'+m.when+'</span>'+
+        '<span class="ms-label">'+m.label+'<span class="ms-desc">'+m.desc+'</span></span>'+
+        '<span class="ms-status">'+status+'</span>';
+      listEl.appendChild(row);
+    });
+    document.getElementById('msSub').textContent = msStarted
+      ? 'Ab deinem ersten Übungstag'
+      : 'Vorschau – zählt ab deinem ersten Übungstag';
+  }
+
+  function buildStats(){
+    const keys = Object.keys(store).filter(k=>checkedFor(k).length>0);
+    const activeDays = keys.length;
+    const totalMin = keys.reduce((s,k)=>s+minutesFor(k),0);
+    // current streak: consecutive days up to today with >=1 checked
+    let streak = 0;
+    let cur = new Date(TODAY);
+    // if today has nothing, start counting from yesterday
+    if(checkedFor(keyOf(cur)).length===0) cur.setDate(cur.getDate()-1);
+    while(checkedFor(keyOf(cur)).length>0){ streak++; cur.setDate(cur.getDate()-1); }
+    document.getElementById('statStreak').textContent = streak;
+    document.getElementById('statDays').textContent = activeDays;
+    document.getElementById('statMin').textContent = totalMin;
+  }
+
+  document.getElementById('prevMonth').addEventListener('click', ()=>{
+    viewMonth--; if(viewMonth<0){viewMonth=11;viewYear--;} buildCalendar();
+  });
+  document.getElementById('nextMonth').addEventListener('click', ()=>{
+    viewMonth++; if(viewMonth>11){viewMonth=0;viewYear++;} buildCalendar();
+  });
+
+  /* ---------- Tabs ---------- */
+  const tabToday = document.getElementById('tabToday');
+  const tabCal = document.getElementById('tabCal');
+  const viewTodayEl = document.getElementById('viewToday');
+  const viewCalEl = document.getElementById('viewCal');
+  function selectTab(which){
+    const t = which==='today';
+    tabToday.setAttribute('aria-selected', t);
+    tabCal.setAttribute('aria-selected', !t);
+    viewTodayEl.classList.toggle('hidden', !t);
+    viewCalEl.classList.toggle('hidden', t);
+    if(!t){ viewYear=TODAY.getFullYear(); viewMonth=TODAY.getMonth(); buildCalendar(); }
+  }
+  tabToday.addEventListener('click', ()=>selectTab('today'));
+  tabCal.addEventListener('click', ()=>selectTab('cal'));
+
+  /* ---------- Reset ---------- */
+  document.getElementById('resetBtn').addEventListener('click', ()=>{
+    if(confirm('Wirklich alle gespeicherten Fortschritte löschen? Das kann nicht rückgängig gemacht werden.')){
+      store = {}; saveAll(store);
+      buildToday();
+      if(!viewCalEl.classList.contains('hidden')) buildCalendar();
+    }
+  });
+
+  /* ---------- Init ---------- */
+  buildToday();
+})();
+</script>
+</body>
+</html>
