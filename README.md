@@ -1,6 +1,6 @@
 # Aufrichten
 
-Eine ruhige, mobile Tagesroutine mit sieben Übungen für mehr Haltungsbewusstsein. Die Anwendung ist für die Nutzung in Safari auf dem iPhone optimiert und speichert Fortschritte ausschließlich lokal im Browser.
+Eine ruhige, mobile Tagesroutine mit sechs Übungen für mehr Haltungsbewusstsein. Die Anwendung ist für die Nutzung in Safari auf dem iPhone optimiert und speichert Fortschritte ausschließlich lokal im Browser.
 
 ## Nutzung
 

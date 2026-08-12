@@ -264,12 +264,12 @@
     <div class="today-grid">
       <div class="spine-col" aria-hidden="true">
         <div class="spine" id="spine"></div>
-        <div class="spine-count" id="spineCount">0/7</div>
+        <div class="spine-count" id="spineCount">0/6</div>
         <div class="spine-min" id="spineMin">0 Min</div>
       </div>
       <div class="cards" id="cards"></div>
     </div>
-    <div class="done-banner" id="doneBanner">Geschafft – alle 7 Übungen erledigt. 🌿</div>
+    <div class="done-banner" id="doneBanner">Geschafft – alle 6 Übungen erledigt. 🌿</div>
   </section>
 
   <!-- CALENDAR -->
@@ -378,17 +378,6 @@
       </g>
       <path ${I.acc} d="M44 18 q-10 6 -6 16"/>
       <path ${I.accF} d="M36 30 l2 8 6 -4 z"/>
-    </svg>`,
-    cobra:`<svg viewBox="0 0 120 96">
-      <line x1="12" y1="80" x2="108" y2="80" ${I.line} opacity="0.4"/>
-      <g ${I.line}>
-        <path d="M30 80 q30 6 54 -8"/>
-        <circle cx="88" cy="60" r="10"/>
-        <path d="M52 74 q6 -2 12 -8"/>
-        <path d="M40 78 l14 -10"/>
-      </g>
-      <path ${I.acc} d="M84 40 q-2 -10 6 -14"/>
-      <path ${I.accF} d="M96 24 l-8 -2 2 8 z"/>
     </svg>`
   };
 
@@ -418,11 +407,7 @@
     { id:'trap', name:'Nacken-Seitdehnung', dur:2, cue:'Entspannt den überaktiven oberen Trapez',
       steps:['Aufrecht sitzen. Kopf langsam zur rechten Schulter neigen.',
              'Rechte Hand leicht auf den Kopf legen, ohne zu ziehen. 30 Sek halten.',
-             'Seite wechseln.'] },
-    { id:'cobra', name:'Kobra-Halten', dur:3, cue:'Stärkt die gesamte hintere Kette',
-      steps:['Auf den Bauch legen, Arme neben dem Körper, Handflächen nach unten.',
-             'Brust und Kopf leicht anheben, Daumen nach oben drehen, Schulterblätter zusammenziehen.',
-             '10 Sek halten, 5–8 Wiederholungen.'] }
+             'Seite wechseln.'] }
   ];
   const TOTAL = EXERCISES.length;
   const TOTAL_MIN = EXERCISES.reduce((s,e)=>s+e.dur,0);
@@ -456,7 +441,10 @@
   const MONTHS = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
   const WDAYS = ['Mo','Di','Mi','Do','Fr','Sa','So'];
 
-  function checkedFor(k){ return (store[k] && store[k].checked) || []; }
+  function checkedFor(k){
+    const saved = (store[k] && store[k].checked) || [];
+    return saved.filter(id=>EXERCISES.some(e=>e.id===id));
+  }
   function minutesFor(k){
     return checkedFor(k).reduce((s,id)=>{
       const e = EXERCISES.find(x=>x.id===id); return s + (e?e.dur:0);
