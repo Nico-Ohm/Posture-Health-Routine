@@ -694,6 +694,75 @@ h1 {
   margin: 10px auto 0;
   color: var(--sage-deep);
 }
+.transfer-guide {
+  max-width: 520px;
+  margin: 12px auto 0;
+  overflow: hidden;
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.transfer-guide-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 0;
+  color: var(--sage-deep);
+  background: transparent;
+  font: 700 13px/1.3 inherit;
+  cursor: pointer;
+  text-align: left;
+}
+.transfer-guide-toggle svg {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.transfer-guide-toggle:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: -4px;
+}
+.transfer-guide-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.transfer-guide.open .transfer-guide-panel {
+  max-height: 720px;
+}
+.transfer-guide.open .chev {
+  transform: rotate(180deg);
+}
+.transfer-guide-panel ol {
+  margin: 0;
+  padding: 14px 20px 4px 38px;
+  border-top: 1px dashed var(--line);
+  color: var(--ink);
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+.transfer-guide-panel li {
+  margin-bottom: 9px;
+  padding-left: 3px;
+}
+.transfer-guide-panel p {
+  margin: 4px 16px 16px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: var(--sage-deep);
+  background: var(--sage-soft);
+  font-size: 12.5px;
+  line-height: 1.45;
+}
 .warn {
   background: var(--amber-soft);
   border: 1px solid var(--amber);

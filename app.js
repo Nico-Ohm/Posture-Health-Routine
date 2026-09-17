@@ -716,6 +716,14 @@
     importFile.value = "";
   });
 
+  const transferGuide = document.getElementById("transferGuide");
+  const transferGuideToggle = document.getElementById("transferGuideToggle");
+  const transferGuidePanel = document.getElementById("transferGuidePanel");
+  transferGuideToggle.addEventListener("click", () => {
+    const isOpen = transferGuide.classList.toggle("open");
+    transferGuideToggle.setAttribute("aria-expanded", String(isOpen));
+    transferGuidePanel.setAttribute("aria-hidden", String(!isOpen));
+  });
   document.addEventListener("visibilitychange", () => {
     if (!document.hidden && keyOf(new Date()) !== TODAY_KEY)
       window.location.reload();

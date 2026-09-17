@@ -222,6 +222,51 @@
           role="status"
           aria-live="polite"
         ></p>
+        <section class="transfer-guide" id="transferGuide">
+          <button
+            class="transfer-guide-toggle"
+            type="button"
+            id="transferGuideToggle"
+            aria-expanded="false"
+            aria-controls="transferGuidePanel"
+          >
+            <span>Anleitung für Export &amp; Import</span>
+            <svg class="chev" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="m5 7.5 5 5 5-5" />
+            </svg>
+          </button>
+          <div
+            class="transfer-guide-panel"
+            id="transferGuidePanel"
+            aria-hidden="true"
+          >
+            <ol>
+              <li>
+                Öffne zuerst die Version, in der deine Fortschritte gespeichert
+                sind – Safari oder die App auf dem Home-Bildschirm.
+              </li>
+              <li>Tippe auf <strong>Daten exportieren</strong>.</li>
+              <li>
+                Wähle im Teilen-Menü <strong>In Dateien sichern</strong> und
+                merke dir den Speicherort.
+              </li>
+              <li>Öffne anschließend die andere Version der Aufrichten-App.</li>
+              <li>
+                Tippe auf <strong>Daten importieren</strong> und wähle die
+                gespeicherte JSON-Datei aus.
+              </li>
+              <li>
+                Haben beide Versionen eigene Fortschritte, exportiere danach die
+                zusammengeführten Daten und importiere sie zurück in die erste
+                Version.
+              </li>
+            </ol>
+            <p>
+              Beim Import werden vorhandene Häkchen nur ergänzt – nichts wird
+              gelöscht.
+            </p>
+          </div>
+        </section>
       </footer>
     </main>
 
