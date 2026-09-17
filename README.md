@@ -93,7 +93,9 @@ Posture-Health-Routine/
 │   ├── icon-512.png               Standard web-app icon
 │   ├── logo-green-head.png        In-app brand mark
 │   └── aufrichten-logo.svg        Earlier vector logo asset
-├── index.html                     Complete application interface and logic
+├── index.html                     Semantic application structure
+├── styles.css                     Responsive visual system
+├── app.js                         Routine, storage, calendar, and UI logic
 ├── haltungs-routine.html          Original standalone source version
 ├── manifest.webmanifest           Installable web-app metadata
 ├── Logo_green_Head.png            Original supplied logo artwork
