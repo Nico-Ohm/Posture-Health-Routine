@@ -262,6 +262,65 @@
     }
   }
 
+  function validImportedDays(payload) {
+    if (
+      !payload ||
+      payload.format !== EXPORT_FORMAT ||
+      payload.version !== EXPORT_VERSION ||
+      !payload.days ||
+      typeof payload.days !== "object" ||
+      Array.isArray(payload.days)
+    ) {
+      throw new Error("invalid-format");
+    }
+
+    const validIds = new Set(EXERCISES.map((exercise) => exercise.id));
+    const days = {};
+    Object.entries(payload.days).forEach(([date, checked]) => {
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || !Array.isArray(checked)) return;
+      const ids = [...new Set(checked.filter((id) => validIds.has(id)))];
+      if (ids.length > 0) days[date] = ids;
+    });
+    return days;
+  }
+
+  function mergeImportedDays(days) {
+    let addedExercises = 0;
+    Object.entries(days).forEach(([date, importedIds]) => {
+      const existingIds = checkedFor(date);
+      const mergedIds = [...new Set([...existingIds, ...importedIds])];
+      addedExercises += mergedIds.length - existingIds.length;
+      store[date] = { checked: mergedIds };
+    });
+    saveAll(store);
+    return addedExercises;
+  }
+
+  async function importProgress(file) {
+    if (!file) return;
+    if (file.size > 1024 * 1024) {
+      setTransferStatus("Die Importdatei ist zu groß.");
+      return;
+    }
+
+    try {
+      const payload = JSON.parse(await file.text());
+      const days = validImportedDays(payload);
+      const dayCount = Object.keys(days).length;
+      if (dayCount === 0) throw new Error("no-days");
+      const addedExercises = mergeImportedDays(days);
+      buildToday();
+      if (!viewCalEl.hidden) buildCalendar();
+      setTransferStatus(
+        addedExercises > 0
+          ? `${addedExercises} neue Übung${addedExercises === 1 ? "" : "en"} aus ${dayCount} Tag${dayCount === 1 ? "" : "en"} ergänzt.`
+          : "Die importierten Daten waren bereits vollständig vorhanden.",
+      );
+    } catch (error) {
+      setTransferStatus("Diese Datei enthält keine gültigen Aufrichten-Daten.");
+    }
+  }
+
   function minutesFor(k) {
     return checkedFor(k).reduce((s, id) => {
       const e = EXERCISES.find((x) => x.id === id);
@@ -647,6 +706,15 @@
   document
     .getElementById("exportBtn")
     .addEventListener("click", exportProgress);
+  const importFile = document.getElementById("importFile");
+  document.getElementById("importBtn").addEventListener("click", () => {
+    importFile.click();
+  });
+  importFile.addEventListener("change", async () => {
+    const [file] = importFile.files;
+    await importProgress(file);
+    importFile.value = "";
+  });
 
   document.addEventListener("visibilitychange", () => {
     if (!document.hidden && keyOf(new Date()) !== TODAY_KEY)
