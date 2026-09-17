@@ -141,6 +141,8 @@
   ];
   const TOTAL = EXERCISES.length;
   const KEY = "aufrichten-tracker-v1";
+  const EXPORT_FORMAT = "aufrichten-progress";
+  const EXPORT_VERSION = 1;
   const storageWarn = document.getElementById("storageWarn");
 
   /* ---------- Storage ---------- */
@@ -212,6 +214,54 @@
       store[k] && Array.isArray(store[k].checked) ? store[k].checked : [];
     return saved.filter((id) => EXERCISES.some((e) => e.id === id));
   }
+  function exportableDays() {
+    return Object.fromEntries(
+      Object.keys(store)
+        .filter((key) => /^\d{4}-\d{2}-\d{2}$/.test(key))
+        .map((key) => [key, [...new Set(checkedFor(key))]])
+        .filter(([, checked]) => checked.length > 0),
+    );
+  }
+  function setTransferStatus(message) {
+    document.getElementById("transferStatus").textContent = message;
+  }
+  async function exportProgress() {
+    const filename = `aufrichten-fortschritt-${TODAY_KEY}.json`;
+    const payload = {
+      format: EXPORT_FORMAT,
+      version: EXPORT_VERSION,
+      exportedAt: new Date().toISOString(),
+      days: exportableDays(),
+    };
+    const contents = JSON.stringify(payload, null, 2);
+    const file = new File([contents], filename, { type: "application/json" });
+
+    try {
+      if (navigator.canShare?.({ files: [file] })) {
+        await navigator.share({
+          files: [file],
+          title: "Aufrichten Fortschritt",
+          text: "Sicherung meiner Aufrichten-Kalenderdaten",
+        });
+        setTransferStatus("Exportdatei wurde bereitgestellt.");
+        return;
+      }
+
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(file);
+      link.download = filename;
+      document.body.append(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(link.href), 0);
+      setTransferStatus("Exportdatei wurde heruntergeladen.");
+    } catch (error) {
+      if (error.name !== "AbortError") {
+        setTransferStatus("Die Exportdatei konnte nicht erstellt werden.");
+      }
+    }
+  }
+
   function minutesFor(k) {
     return checkedFor(k).reduce((s, id) => {
       const e = EXERCISES.find((x) => x.id === id);
@@ -593,6 +643,10 @@
       if (!viewCalEl.hidden) buildCalendar();
     }
   });
+
+  document
+    .getElementById("exportBtn")
+    .addEventListener("click", exportProgress);
 
   document.addEventListener("visibilitychange", () => {
     if (!document.hidden && keyOf(new Date()) !== TODAY_KEY)

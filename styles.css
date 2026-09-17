@@ -646,6 +646,43 @@ h1 {
   font-size: 12.5px;
   font-family: inherit;
 }
+.transfer-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  max-width: 520px;
+  margin: 18px auto 0;
+}
+.transfer-button {
+  min-height: 46px;
+  border: 1px solid var(--sage-deep);
+  border-radius: 12px;
+  padding: 10px 14px;
+  background: var(--sage-deep);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  transition:
+    background 0.18s,
+    border-color 0.18s,
+    transform 0.18s;
+}
+.transfer-button:hover {
+  border-color: var(--green);
+  background: var(--green);
+}
+.transfer-button:active {
+  transform: scale(0.98);
+}
+.transfer-button:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 3px;
+}
+.transfer-status {
+  min-height: 1.5em;
+  margin: 10px auto 0;
+  color: var(--sage-deep);
+}
 .warn {
   background: var(--amber-soft);
   border: 1px solid var(--amber);
