@@ -225,43 +225,65 @@
   function setTransferStatus(message) {
     document.getElementById("transferStatus").textContent = message;
   }
-  async function exportProgress() {
-    const filename = `aufrichten-fortschritt-${TODAY_KEY}.json`;
-    const payload = {
-      format: EXPORT_FORMAT,
-      version: EXPORT_VERSION,
-      exportedAt: new Date().toISOString(),
-      days: exportableDays(),
-    };
-    const contents = JSON.stringify(payload, null, 2);
+  function downloadExport(contents, filename) {
+    const blob = new Blob([contents], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename;
+    document.body.append(link);
+    link.click();
+    link.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  async function shareExport(contents, filename) {
+    if (
+      typeof File !== "function" ||
+      typeof navigator.share !== "function" ||
+      typeof navigator.canShare !== "function"
+    ) {
+      return false;
+    }
+
     const file = new File([contents], filename, { type: "application/json" });
+    let canShareFile = false;
+    try {
+      canShareFile = navigator.canShare({ files: [file] });
+    } catch (error) {
+      return false;
+    }
+    if (!canShareFile) return false;
 
     try {
-      if (navigator.canShare?.({ files: [file] })) {
-        await navigator.share({
-          files: [file],
-          title: "Aufrichten Fortschritt",
-          text: "Sicherung meiner Aufrichten-Kalenderdaten",
-        });
-        setTransferStatus("Exportdatei wurde bereitgestellt.");
-        return;
-      }
-
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(file);
-      link.download = filename;
-      document.body.append(link);
-      link.click();
-      link.remove();
-      window.setTimeout(() => URL.revokeObjectURL(link.href), 0);
-      setTransferStatus("Exportdatei wurde heruntergeladen.");
+      await navigator.share({ files: [file] });
+      setTransferStatus("Exportdatei wurde bereitgestellt.");
+      return true;
     } catch (error) {
-      if (error.name !== "AbortError") {
-        setTransferStatus("Die Exportdatei konnte nicht erstellt werden.");
-      }
+      if (error?.name === "AbortError") return true;
+      return false;
     }
   }
 
+  async function exportProgress() {
+    try {
+      const filename = `aufrichten-fortschritt-${TODAY_KEY}.json`;
+      const payload = {
+        format: EXPORT_FORMAT,
+        version: EXPORT_VERSION,
+        exportedAt: new Date().toISOString(),
+        days: exportableDays(),
+      };
+      const contents = JSON.stringify(payload, null, 2);
+
+      if (await shareExport(contents, filename)) return;
+
+      downloadExport(contents, filename);
+      setTransferStatus("Exportdatei wurde heruntergeladen.");
+    } catch (error) {
+      setTransferStatus("Die Exportdatei konnte nicht erstellt werden.");
+    }
+  }
   function validImportedDays(payload) {
     if (
       !payload ||
