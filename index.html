@@ -108,6 +108,12 @@
         aria-labelledby="tabToday"
         tabindex="0"
       >
+        <div class="date-edit-context" id="dateEditContext" hidden>
+          <span>Du bearbeitest <strong id="editingDate"></strong></span>
+          <button class="back-today" type="button" id="backToToday">
+            Zurück zu heute
+          </button>
+        </div>
         <div class="today-grid">
           <div class="spine-col" aria-hidden="true">
             <div class="spine" id="spine"></div>

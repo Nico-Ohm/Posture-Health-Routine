@@ -130,6 +130,36 @@ h1 {
   outline-offset: 2px;
 }
 
+.date-edit-context {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 14px;
+  padding: 11px 13px;
+  border: 1px solid var(--sage);
+  border-radius: 12px;
+  color: var(--sage-deep);
+  background: var(--sage-soft);
+  font-size: 13px;
+}
+.date-edit-context[hidden] {
+  display: none;
+}
+.back-today {
+  flex: 0 0 auto;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  padding: 3px 0;
+  color: var(--sage-deep);
+  background: transparent;
+  font: 700 12px/1.2 inherit;
+  cursor: pointer;
+}
+.back-today:focus-visible {
+  outline: 2px solid var(--sage-deep);
+  outline-offset: 3px;
+}
 /* ---- Today view ---- */
 .today-grid {
   display: grid;
@@ -428,6 +458,31 @@ h1 {
   justify-content: center;
   gap: 3px;
   position: relative;
+}
+button.day {
+  appearance: none;
+  padding: 0;
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
+}
+button.day:hover {
+  border-color: var(--sage);
+}
+button.day:active {
+  transform: scale(0.96);
+}
+button.day:focus-visible {
+  outline: 2px solid var(--sage-deep);
+  outline-offset: 2px;
+}
+.day.selected:not(.today) {
+  border-color: var(--sage-deep);
+  box-shadow: inset 0 0 0 1px var(--sage-deep);
 }
 .day.empty {
   border: 0;

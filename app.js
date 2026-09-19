@@ -349,6 +349,29 @@
       return s + (e ? e.dur : 0);
     }, 0);
   }
+  /* ---------- Routine date ---------- */
+  let activeDate = new Date(
+    TODAY.getFullYear(),
+    TODAY.getMonth(),
+    TODAY.getDate(),
+  );
+  let activeDateKey = TODAY_KEY;
+
+  function useRoutineDate(date) {
+    activeDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    activeDateKey = keyOf(activeDate);
+    buildToday();
+  }
+
+  function openRoutineDate(date) {
+    useRoutineDate(date);
+    selectTab("today", { focus: true });
+  }
+
+  function returnToToday() {
+    useRoutineDate(TODAY);
+  }
+
   /* ---------- Today view ---------- */
   const cardsEl = document.getElementById("cards");
   const spineEl = document.getElementById("spine");
@@ -358,11 +381,22 @@
   function buildToday() {
     // date label
     const opts = { weekday: "long", day: "numeric", month: "long" };
-    document.getElementById("todayDate").textContent = TODAY.toLocaleDateString(
-      "de-DE",
-      opts,
-    );
+    document.getElementById("todayDate").textContent =
+      activeDate.toLocaleDateString("de-DE", opts);
 
+    const editingPast = activeDateKey !== TODAY_KEY;
+    const dateEditContext = document.getElementById("dateEditContext");
+    dateEditContext.hidden = !editingPast;
+    document.getElementById("editingDate").textContent = editingPast
+      ? activeDate.toLocaleDateString("de-DE", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+        })
+      : "";
+    document.getElementById("tabToday").textContent = editingPast
+      ? "Bearbeiten"
+      : "Heute";
     // spine
     spineEl.innerHTML = "";
     for (let i = 0; i < TOTAL; i++) {
@@ -374,7 +408,7 @@
     // cards
     cardsEl.innerHTML = "";
     EXERCISES.forEach((e, idx) => {
-      const done = checkedFor(TODAY_KEY).includes(e.id);
+      const done = checkedFor(activeDateKey).includes(e.id);
       const card = document.createElement("article");
       const detailId = `exercise-detail-${e.id}`;
       card.className = "card" + (done ? " done" : "");
@@ -428,21 +462,21 @@
   }
 
   function refreshSpine() {
-    const n = checkedFor(TODAY_KEY).length;
+    const n = checkedFor(activeDateKey).length;
     [...spineEl.children].forEach((v, i) => v.classList.toggle("on", i < n));
     document.getElementById("spineCount").textContent = n + "/" + TOTAL;
     document.getElementById("spineMin").textContent =
-      minutesFor(TODAY_KEY) + " Min";
+      minutesFor(activeDateKey) + " Min";
     document.getElementById("doneBanner").classList.toggle("show", n >= TOTAL);
   }
 
   function toggle(id) {
-    const arr = checkedFor(TODAY_KEY).slice();
+    const arr = checkedFor(activeDateKey).slice();
     const i = arr.indexOf(id);
     if (i >= 0) arr.splice(i, 1);
     else arr.push(id);
-    store[TODAY_KEY] = { checked: arr };
-    if (arr.length === 0) delete store[TODAY_KEY];
+    store[activeDateKey] = { checked: arr };
+    if (arr.length === 0) delete store[activeDateKey];
     saveAll(store);
     // update the one card + spine without full rebuild
     const idx = EXERCISES.findIndex((x) => x.id === id);
@@ -570,9 +604,26 @@
       const done = checkedFor(k).length;
       const frac = done / TOTAL;
       const mins = minutesFor(k);
-      const cell = document.createElement("div");
+      const cell = document.createElement(isFuture ? "div" : "button");
       cell.className =
-        "day" + (k === TODAY_KEY ? " today" : "") + (isFuture ? " future" : "");
+        "day" +
+        (k === TODAY_KEY ? " today" : "") +
+        (k === activeDateKey ? " selected" : "") +
+        (isFuture ? " future" : "");
+      if (!isFuture) {
+        cell.type = "button";
+        cell.setAttribute("aria-pressed", String(k === activeDateKey));
+        cell.setAttribute(
+          "aria-label",
+          `${date.toLocaleDateString("de-DE", {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          })} bearbeiten`,
+        );
+        cell.addEventListener("click", () => openRoutineDate(date));
+      }
       const ringStyle =
         'style="--frac:' +
         frac +
@@ -689,14 +740,22 @@
     viewCalEl.hidden = isToday;
 
     if (!isToday) {
-      viewYear = TODAY.getFullYear();
-      viewMonth = TODAY.getMonth();
+      viewYear = activeDate.getFullYear();
+      viewMonth = activeDate.getMonth();
       buildCalendar();
     }
     if (focus) activeTab.focus();
   }
 
   tabToday.addEventListener("click", () => selectTab("today"));
+
+  document.getElementById("backToToday").addEventListener("click", () => {
+    returnToToday();
+    document.getElementById("todayDate").scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  });
   tabCal.addEventListener("click", () => selectTab("cal"));
   [tabToday, tabCal].forEach((tab) => {
     tab.addEventListener("keydown", (event) => {
